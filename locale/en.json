@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Monthly progress ledger",
+    "description": "A monthly progress ledger above the composer (or at the top of the page): log minutes and seconds plus a note per stretch, switch the backdrop between paper / frosted / clear, pin it to the top or bottom, and set the target node to workdays × 2 or × 3 minutes.",
+    "detail": "docs/DETAIL.md"
+  }
+}

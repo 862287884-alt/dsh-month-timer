@@ -1,0 +1,66 @@
+{
+  "name": "dsh-month-timer",
+  "version": "0.5.0",
+  "description": "月度进度条：对话框上方（或页面上方）按月记账，手填分:秒 + 备注加彩色阶段；背景可选纸面/毛玻璃/透明，位置可切换上下，节点 = 当月工作日 × 2 或 × 3 分钟。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "timer",
+    "progress",
+    "monthly"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/dsh-month-timer.git"
+  },
+  "homepage": "https://github.com/OWNER/dsh-month-timer#readme",
+  "bugs": {
+    "url": "https://github.com/OWNER/dsh-month-timer/issues"
+  },
+  "author": "OWNER",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "docs/DETAIL.md",
+    "docs/preview.png"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "bun scripts/build.mjs",
+    "asset": "python scripts/make-asset.py"
+  },
+  "license": "MIT"
+}

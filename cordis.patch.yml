@@ -1,0 +1,8 @@
+# dsh-month-timer bundle patch: mounts the plugin into a profile layer stack.
+# The row id is what a user's own cordis.patch.yml would override; the row name
+# is the module this package exports, so it must stay the package name.
+# Keep them different: DSH prints both on the plugin card and skips one only when
+# it equals the row title.
+- insert:
+    - id: month-timer
+      name: 'dsh-month-timer'
