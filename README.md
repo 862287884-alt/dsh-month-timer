@@ -9,8 +9,8 @@
 三种方式任选一种，装完在 `插件` 面板里确认它是启用状态即可（插件 ID：`dsh-month-timer`）。
 
 1. **插件市场**（推荐）：打开 `插件市场`，搜「月度进度条」或 `dsh-month-timer`，点安装。
-2. **直接给仓库地址**：`插件` → `添加插件` → 填 `https://github.com/OWNER/dsh-month-timer`（或 `github:OWNER/dsh-month-timer`）。
-3. **Release 里的 tgz**：把 `https://github.com/OWNER/dsh-month-timer/releases/latest/download/dsh-month-timer.tgz` 粘进同一个输入框。
+2. **直接给仓库地址**：`插件` → `添加插件` → 填 `https://github.com/862287884-alt/dsh-month-timer`（或 `github:862287884-alt/dsh-month-timer`）。
+3. **Release 里的 tgz**：把 `https://github.com/862287884-alt/dsh-month-timer/releases/latest/download/dsh-month-timer.tgz` 粘进同一个输入框。
 
 要求：DSH 桌面端 / Web 端均可（客户端插件只用到 `shell.overlay`、`conversation.composer.dock` 两个槽位和 `locale` 服务），React 18 由宿主提供。数据只写本机 `localStorage`，不联网。
 
