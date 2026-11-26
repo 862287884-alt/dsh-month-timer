@@ -42,7 +42,6 @@ import {
   type Store,
 } from "./store";
 import { createTranslator, getLang } from "./i18n";
-import { applySeed } from "./seed";
 
 const { useState, useEffect, useRef, useMemo } = React;
 
@@ -1666,13 +1665,6 @@ function registerSlots(ctx: any, slots: any): void {
 export function mount(ctx: any): void {
   mark("apply");
   beacon("apply");
-  // The card reads the store in its useState initialiser, so a data import has
-  // to land before the widget mounts: run it here, ahead of the slot lookup.
-  try {
-    applySeed();
-  } catch (e) {
-    /* applySeed already swallows its own errors; this is belt and braces */
-  }
   // Wait (with backoff) for the slots service instead of bailing on the first
   // look: ~45s of coverage, the same ceiling the shipped bundles use.
   let attempts = 0;
