@@ -14,13 +14,13 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/dsh-month-timer.git"
+    "url": "git+https://github.com/862287884-alt/dsh-month-timer.git"
   },
-  "homepage": "https://github.com/OWNER/dsh-month-timer#readme",
+  "homepage": "https://github.com/862287884-alt/dsh-month-timer#readme",
   "bugs": {
-    "url": "https://github.com/OWNER/dsh-month-timer/issues"
+    "url": "https://github.com/862287884-alt/dsh-month-timer/issues"
   },
-  "author": "OWNER",
+  "author": "862287884-alt",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
