@@ -492,83 +492,6 @@ window.__ModuleLoader__.load({
       };
     }
 
-    // src/seed.ts
-    var MARK_KEY = "dsh-month-timer.imported.v1";
-    var SEED = {
-      token: "excel-2026-11-26-v1",
-      month: "2026-11",
-      stages: [
-        { ms: 1800000, note: "2026.10.30 BL短视频 BLDrama", at: "2026-10-30T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.10.30 BL短视频 BLDrama", at: "2026-10-30T12:00:00+08:00" },
-        { ms: 13380000, note: "2026.11.2 总裁2 Chapter10-（25~27）", at: "2026-11-02T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.2 BL短视频 BLDrama", at: "2026-11-02T12:00:00+08:00" },
-        { ms: 19200000, note: "2026.11.3 总裁2 Chapter12-（29~30）", at: "2026-11-03T12:00:00+08:00" },
-        { ms: 1860000, note: "2026.11.3 BL短视频 BLDrama", at: "2026-11-03T12:00:00+08:00" },
-        { ms: 25740000, note: "2026.11.4 总裁2 Chapter12-（29~30）", at: "2026-11-04T12:00:00+08:00" },
-        { ms: 1860000, note: "2026.11.4 BL短视频 BLDrama", at: "2026-11-04T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.5 BL短视频 BLDrama", at: "2026-11-05T12:00:00+08:00" },
-        { ms: 20640000, note: "2026.11.6 总裁2 番外F2", at: "2026-11-06T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.6 BL短视频 BLDrama", at: "2026-11-06T12:00:00+08:00" },
-        { ms: 1860000, note: "2026.11.10 BL短视频 BLDrama", at: "2026-11-10T12:00:00+08:00" },
-        { ms: 1860000, note: "2026.11.11 BL短视频 BLDrama", at: "2026-11-11T12:00:00+08:00" },
-        { ms: 1860000, note: "2026.11.12 BL短视频 BLDrama", at: "2026-11-12T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.13 BL短视频 BLDrama", at: "2026-11-13T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.15 BL短视频 BLDrama", at: "2026-11-15T12:00:00+08:00" },
-        { ms: 21480000, note: "2026.11.16 机长 Chapter1（1~3）", at: "2026-11-16T12:00:00+08:00" },
-        { ms: 1740000, note: "2026.11.16 BL短视频 BLDrama", at: "2026-11-16T12:00:00+08:00" },
-        { ms: 8940000, note: "2026.11.17 机长 Chapter1（1~3）", at: "2026-11-17T12:00:00+08:00" },
-        { ms: 11580000, note: "2026.11.17 机长 Chapter1（1~3）", at: "2026-11-17T12:00:00+08:00" },
-        { ms: 4920000, note: "2026.11.23 机长 Chapter3（9~13）", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 8640000, note: "2026.11.23 机长 Chapter3（9~13）", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 7860000, note: "2026.11.23 机长 Chapter3（9~13）", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 11760000, note: "2026.11.23 机长 Chapter3（9~13）", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 14340000, note: "2026.11.23 机长 Chapter3（9~13）", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.23 BL短视频 BLDrama", at: "2026-11-23T12:00:00+08:00" },
-        { ms: 1800000, note: "2026.11.26 机长短视频 帮李总生短视频", at: "2026-11-26T12:00:00+08:00" }
-      ]
-    };
-    function readTokens() {
-      try {
-        const raw = localStorage.getItem(MARK_KEY);
-        const list = raw ? JSON.parse(raw) : [];
-        return Array.isArray(list) ? list.filter((x) => typeof x === "string") : [];
-      } catch (e) {
-        return [];
-      }
-    }
-    function applySeed() {
-      try {
-        if (typeof localStorage === "undefined")
-          return;
-        const tokens = readTokens();
-        if (tokens.indexOf(SEED.token) >= 0)
-          return;
-        const state = loadStore();
-        const rec = monthRecord(state, SEED.month);
-        const stages = rec.stages.slice();
-        SEED.stages.forEach((item, index) => {
-          const ms = Math.round(Number(item.ms));
-          if (!Number.isFinite(ms) || ms <= 0)
-            return;
-          const note = String(item.note || "").trim();
-          stages.push({
-            id: SEED.token + "-" + index,
-            ms,
-            note,
-            at: item.at,
-            color: pickColor(note, stages)
-          });
-        });
-        if (stages.length === rec.stages.length)
-          return;
-        const next = { ...state, months: { ...state.months, [SEED.month]: { stages, pendingMs: 0 } } };
-        localStorage.setItem(STORE_KEY, serialize(next));
-        try {
-          localStorage.setItem(MARK_KEY, JSON.stringify(tokens.concat([SEED.token])));
-        } catch (e) {}
-      } catch (e) {}
-    }
-
     // src/app.tsx
     var { useState, useEffect, useRef, useMemo } = React;
     var RATIO = BANNER_HEIGHT / BANNER_WIDTH;
@@ -1925,9 +1848,6 @@ window.__ModuleLoader__.load({
     function mount(ctx) {
       mark("apply");
       beacon("apply");
-      try {
-        applySeed();
-      } catch (e) {}
       let attempts = 0;
       const attempt = () => {
         const slots = readSlots(ctx);
